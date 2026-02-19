@@ -3,3 +3,4 @@ qiskit_ibm_runtime==0.45.0
 qiskit[visualization]==2.3.0
 jupyter==1.1.1
 matplotlib==3.10.8
+qiskit-aer==0.17.2
