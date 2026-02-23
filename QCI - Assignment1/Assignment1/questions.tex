@@ -16,6 +16,7 @@ Given the quantum state $\ket{\psi} = \sqrt{\frac{1}{3}} \ket{0} + \sqrt{\frac{2
 \texttt{Write down your solution here:}
 \begin{equation*}
   \begin{split}
+    \sqrt \frac{1}{3} \ket{0} + \sqrt \frac{2}{3} \ket{1} = \frac{1}{3} \ket{0} + \frac{2}{3} \ket{1} = 1
   \end{split}
 \end{equation*}}
 \vspace{0.1cm}
@@ -27,8 +28,15 @@ Given the quantum states $\ket{\psi_{1}} = \frac{3}{5} \ket{0} + \frac{4}{5} \ke
 {\small
 \texttt{Write down your solution here:}
 \begin{equation*}
-  \begin{split}
-  \end{split}
+\begin{split}
+    \ket{\psi} &= (\sqrt{\tfrac{3}{5}}\ket{0}-\sqrt{\tfrac{4}{5}}\ket{1})
+    - (\sqrt{\tfrac{3}{5}}\ket{0}+\sqrt{\tfrac{4}{5}}\ket{1}) \\
+    \ket{\psi} &= (\sqrt{\tfrac{3}{5}}\ket{0}-\sqrt{\tfrac{4}{5}}\ket{1})
+    - (\sqrt{\tfrac{3}{5}}\ket{0}-\sqrt{\tfrac{4}{5}}\ket{1}) \\
+    \ket{\psi} &= \sqrt{\tfrac{3}{5}}\ket{0}-\sqrt{\tfrac{4}{5}}\ket{1}
+    - \sqrt{\tfrac{3}{5}}\ket{0}-\sqrt{\tfrac{4}{5}}\ket{1}\\
+    \ket{\psi} &= -\tfrac{4}{5}\ket{1}-\tfrac{4}{5}\ket{1}=-\tfrac{8}{5}\ket{1}=-1\tfrac{3}{5}\ket{1}
+\end{split}
 \end{equation*}}
 \vspace{0.1cm}
 
@@ -40,6 +48,13 @@ Assume that you can only use the quantum gates from the set $\mathcal{Q} = \left
 \texttt{Write down your solution here:}
 \begin{equation*}
   \begin{split}
+  \ket{\psi_{out}}=\tfrac{i}{\sqrt{2}}\ket{0}-\tfrac{i}{\sqrt{2}}\ket{1} = \\
+  \ket{\psi_{out}}=i(\tfrac{1}{\sqrt{2}}\ket{0}-\tfrac{1}{\sqrt{2}}\ket{1}) = \\
+  \ket{\psi_{out}}=\tfrac{1}{\sqrt{2}}(\ket{0}-\ket{1}) \\
+  \\
+  \ket{\phi}=\tfrac{1}{\sqrt{2}}(\ket{0}-\ket{1}) \\
+  H\ket{0} = \tfrac{1}{\sqrt{2}}(\ket{0}+\ket{1}) \\
+  ZH=Z(\tfrac{1}{\sqrt{2}}(\ket{0}+\ket{1})=\tfrac{1}{\sqrt{2}}(\ket{0}-\ket{1})
   \end{split}
 \end{equation*}}
 \vspace{0.1cm}
@@ -50,8 +65,13 @@ Assume that you can only use the quantum gates from the set $\mathcal{Q} = \left
 \end{question}
 {\small
 \texttt{Write down your solution here:}
+\texttt{The only way to achieve $-\ket{1}$ is by applying a gate S, which is not allowed to be used , thus not possible. Since the only gate that uses imaginary numbers is Y, Y flips the basis states.}
 \begin{equation*}
   \begin{split}
+  \ket{\psi_{out}}=\tfrac{1}{\sqrt{2}}(\ket{0}+i\ket{1})= \\
+  H\ket{0}=\tfrac{1}{\sqrt{2}}(\ket{0}+\ket{1}) \\
+  \\
+  \ket{0} -> \ket{0}, \ket{1} -> -\ket{1}
   \end{split}
 \end{equation*}}
 \vspace{0.1cm}
@@ -64,7 +84,27 @@ What state does the $S$ gate transform the quantum state $\ket{-i}$ into?
 \texttt{Write down your solution here:}
 \begin{equation*}
   \begin{split}
-    \ket{\psi} &= S \ket{-i} \\
+    \ket{\psi} &= S \ket{-i} =
+    \begin{pmatrix}
+        1 & 0 \\ 0 & i
+    \end{pmatrix}
+    \cdot
+    \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+        1 \\ -i
+    \end{pmatrix}
+    =
+    \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+        1 \\ i & (-i)
+    \end{pmatrix}
+    =
+    \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+        1 \\ 1
+    \end{pmatrix}
+    =
+    \ket{+}
   \end{split}
 \end{equation*}}
 \vspace{0.1cm}
@@ -83,7 +123,12 @@ Consider the quantum circuit presented in Figure~\ref{fig:circuit1} and assume $
 \texttt{Write down your solution here:}
 \begin{equation*}
   \begin{split}
-      &\rightarrow \ket{0} \\
+    \ket{0} \\ 
+    H &\rightarrow \frac{1}{\sqrt{2}} (\ket{0}+\ket{1})
+    \\
+    Z &\rightarrow \ket{-} = \frac{1}{\sqrt{2}} (\ket{0}-\ket{1})
+    \\
+    H &\rightarrow \ket{1}
   \end{split}
 \end{equation*}}
 \vspace{0.1cm}
@@ -94,9 +139,70 @@ Consider the quantum circuit presented in Figure~\ref{fig:circuit1}. Determine, 
 \end{question}
 {\small
 \texttt{Write down your solution here:}
+
 \begin{equation*}
-  \begin{split}
-  \end{split}
+U = H Z H
+\end{equation*}
+
+\textbf{Step 1: Defining the Matrix}
+
+\begin{equation*}
+H = \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 & 1 \\ 1 & -1
+\end{pmatrix}
+\end{equation*}
+
+\begin{equation*}
+Z = \begin{pmatrix} 1 & 0 \\ 0 & -1
+\end{pmatrix}
+\end{equation*}
+
+\textbf{Step 2: Compute } ZH
+
+\begin{align*}
+ZH &= \begin{pmatrix} 1 & 0 \\ 0 & -1
+\end{pmatrix}
+\cdot
+\frac{1}{\sqrt{2}}
+\begin{pmatrix} 1 & 1 \\ 1 & -1
+\end{pmatrix} \\
+&=
+\frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ -1 & 1
+\end{pmatrix}
+\end{align*}
+
+\textbf{Step 3: Compute } H(ZH)
+
+\begin{align*}
+U &= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ 1 & -1
+\end{pmatrix}
+\cdot
+\frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ -1 & 1
+\end{pmatrix} \\
+&=
+\frac{1}{2} \begin{pmatrix} 1 & 1 \\ 1 & -1
+\end{pmatrix}
+\begin{pmatrix} 1 & 1 \\ -1 & 1
+\end{pmatrix} \\
+&=
+\frac{1}{2}
+\begin{pmatrix}
+(1)(1)+(1)(-1) & (1)(1)+(1)(1) \\
+(1)(1)+(-1)(-1) & (1)(1)+(-1)(1)
+\end{pmatrix} \\
+&=
+\frac{1}{2} \begin{pmatrix} 0 & 2 \\ 2 & 0
+\end{pmatrix} \\
+&=
+\begin{pmatrix} 0 & 1 \\ 1 & 0
+\end{pmatrix}
+\end{align*}
+
+\begin{equation*}
+HZH = \begin{pmatrix} 0 & 1 \\ 1 & 0
+\end{pmatrix}
+= X
 \end{equation*}}
 \vspace{0.1cm}
 
@@ -109,8 +215,129 @@ Consider the quantum circuit presented in Figure~\ref{fig:circuit1} and assume $
 \begin{equation*}
   \begin{split}
     &\rightarrow \ket{1} \\
+    \textbf{Given: } |q_0\rangle = |1\rangle
+
+\begin{equation*}
+|1\rangle =
+\begin{pmatrix}
+0 \\
+1
+\end{pmatrix}
+\end{equation*}
+
+\textbf{Step 1: Apply the first Hadamard gate } H
+\begin{equation*}
+H = \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 & 1 \\
+1 & -1
+\end{pmatrix}
+\end{equation*}
+
+\begin{align*}
+|\psi_1\rangle
+&= H |1\rangle \\
+&=
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 & 1 \\
+1 & -1
+\end{pmatrix}
+\begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \\
+&=
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+(1)(0) + (1)(1) \\
+(1)(0) + (-1)(1)
+\end{pmatrix} \\
+&=
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+-1
+\end{pmatrix}
+\end{align*}
+
+\textbf{Step 2: Apply the Z gate}
+\begin{equation*}
+Z =
+\begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}
+\end{equation*}
+
+\begin{align*}
+|\psi_2\rangle
+&= Z |\psi_1\rangle \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+-1
+\end{pmatrix} \\
+&=
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+1
+\end{pmatrix}
+\end{align*}
+
+\textbf{Step 3: Apply the final Hadamard gate}
+
+\begin{align*}
+|\psi_{out}\rangle
+&= H |\psi_2\rangle \\
+&=
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 & 1 \\
+1 & -1
+\end{pmatrix}
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+1
+\end{pmatrix} \\
+&=
+\frac{1}{2}
+\begin{pmatrix}
+(1)(1) + (1)(1) \\
+(1)(1) + (-1)(1)
+\end{pmatrix} \\
+&=
+\frac{1}{2}
+\begin{pmatrix}
+2 \\
+0
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 \\
+0
+\end{pmatrix}
+\end{align*}
+
+\textbf{Final Result:}
+
+\begin{equation*}
+|\psi_{out}\rangle =
+\begin{pmatrix}
+1 \\
+0
+\end{pmatrix}
+= |0\rangle
+\end{equation*}
   \end{split}
-\end{equation*}}
+\end{equation*}
 \vspace{0.1cm}
 
 \begin{figure}[t]
@@ -128,8 +355,109 @@ Consider the quantum circuit presented in Figure~\ref{fig:circuit2} and assume $
 \begin{equation*}
   \begin{split}
     &\rightarrow \ket{1} \\
+    \textbf{Given:}
+
+\begin{equation*}
+|q_0\rangle = |1\rangle
+\end{equation*}
+
+The circuit is
+
+\begin{equation*}
+U = Z H X H
+\end{equation*}
+
+\textbf{Step 1: Apply the first } H
+
+\begin{equation*}
+H|1\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)
+\end{equation*}
+
+\begin{equation*}
+|\psi_1\rangle =
+\frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)
+\end{equation*}
+
+\textbf{Step 2: Apply } X
+
+Using
+
+\begin{equation*}
+X|0\rangle = |1\rangle,
+\quad
+X|1\rangle = |0\rangle
+\end{equation*}
+
+\begin{align*}
+|\psi_2\rangle
+&= X |\psi_1\rangle \\
+&=
+\frac{1}{\sqrt{2}}(X|0\rangle - X|1\rangle) \\
+&=
+\frac{1}{\sqrt{2}}(|1\rangle - |0\rangle) \\
+&=
+-\frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)
+\end{align*}
+
+\textbf{Step 3: Apply } H
+
+Using
+
+\begin{equation*}
+H|0\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)
+\end{equation*}
+
+\begin{equation*}
+H|1\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)
+\end{equation*}
+
+\begin{align*}
+H(|0\rangle - |1\rangle)
+&= H|0\rangle - H|1\rangle \\
+&=
+\frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)
+-
+\frac{1}{\sqrt{2}}(|0\rangle - |1\rangle) \\
+&=
+\frac{1}{\sqrt{2}}
+\left(
+|0\rangle + |1\rangle - |0\rangle + |1\rangle
+\right) \\
+&=
+\sqrt{2} |1\rangle
+\end{align*}
+
+Including the prefactor:
+
+\begin{equation*}
+|\psi_3\rangle
+=
+-\frac{1}{\sqrt{2}} \cdot \sqrt{2} |1\rangle
+=
+- |1\rangle
+\end{equation*}
+
+\textbf{Step 4: Apply } Z
+
+\begin{equation*}
+Z|1\rangle = -|1\rangle
+\end{equation*}
+
+\begin{align*}
+|\psi_{out}\rangle
+&= Z(-|1\rangle) \\
+&= -Z|1\rangle \\
+&= -(-|1\rangle) \\
+&= |1\rangle
+\end{align*}
+
+\textbf{Final Result:}
+
+\begin{equation*}
+|\psi_{out}\rangle = |1\rangle
+\end{equation*}
   \end{split}
-\end{equation*}}
+\end{equation*}
 \vspace{0.1cm}
 
 \begin{question}
@@ -141,5 +469,84 @@ Consider the quantum circuit presented in Figure~\ref{fig:circuit2} and assume $
 \begin{equation*}
   \begin{split}
     &\rightarrow \ket{+} \\
+    \textbf{Given:}
+
+\begin{equation*}
+|q_0\rangle = |+\rangle
+=
+\frac{1}{\sqrt{2}} (|0\rangle + |1\rangle)
+\end{equation*}
+
+The circuit is
+
+\begin{equation*}
+U = Z H X H
+\end{equation*}
+
+\textbf{Step 1: Apply the first } H
+
+Since
+
+\begin{equation*}
+H|+\rangle = |0\rangle
+\end{equation*}
+
+we obtain
+
+\begin{equation*}
+|\psi_1\rangle = |0\rangle
+\end{equation*}
+
+\textbf{Step 2: Apply } X
+
+\begin{equation*}
+X|0\rangle = |1\rangle
+\end{equation*}
+
+\begin{equation*}
+|\psi_2\rangle = |1\rangle
+\end{equation*}
+
+\textbf{Step 3: Apply } H
+
+\begin{equation*}
+H|1\rangle =
+\frac{1}{\sqrt{2}} (|0\rangle - |1\rangle)
+\end{equation*}
+
+\begin{equation*}
+|\psi_3\rangle =
+\frac{1}{\sqrt{2}} (|0\rangle - |1\rangle)
+\end{equation*}
+
+\textbf{Step 4: Apply } Z
+
+Since
+
+\begin{equation*}
+Z|0\rangle = |0\rangle,
+\quad
+Z|1\rangle = -|1\rangle
+\end{equation*}
+
+we get
+
+\begin{align*}
+|\psi_{out}\rangle
+&= Z |\psi_3\rangle \\
+&=
+\frac{1}{\sqrt{2}} (Z|0\rangle - Z|1\rangle) \\
+&=
+\frac{1}{\sqrt{2}} (|0\rangle + |1\rangle)
+\end{align*}
+
+\textbf{Final Result:}
+
+\begin{equation*}
+|\psi_{out}\rangle =
+\frac{1}{\sqrt{2}} (|0\rangle + |1\rangle)
+=
+|+\rangle
+\end{equation*}
   \end{split}
-\end{equation*}}
+\end{equation*}
