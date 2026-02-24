@@ -4,3 +4,5 @@ qiskit[visualization]==2.3.0
 jupyter==1.1.1
 matplotlib==3.10.8
 qiskit-aer==0.17.2
+qiskit_quantuminspire==0.16.0
+quantuminspire==3.5.1
