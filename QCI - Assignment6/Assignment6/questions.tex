@@ -1,0 +1,343 @@
+Welcome to the sixth assignment! During this assignment, you will practice your
+math skills in an environment more similar to the one that you will face during
+the course assessment. Although the questions will not be the same, they will
+follow the same structure and you will have to solve the exercises using the
+Dirac notation or matrix--vector multiplication.
+
+Together with this assignment, you will find the \LaTeX { template} for you to
+use when solving the exercises and writing down your answers. Remember to
+upload a single pdf file with the full development of the assignment and the
+answers.
+
+\begin{question}
+Let $\ket{\psi} = \frac{1}{\sqrt{2}} \left( \ket{000} + \ket{111} \right)$. What will you always obtain when measuring two of the three qubits (any of them)?
+\label{qst:assignment6_1}
+\end{question}
+{\small
+\texttt{Write down your solution here:}}
+\begin{equation*}
+    \ket{00}+\ket{11}
+    \text {, Because, you can't measure $\ket{01}$ and $\ket{10}$ }\\
+\end{equation*}
+\vspace{0.1cm}
+
+\begin{figure}[t]
+  \centerline{\includegraphics[scale=0.25]{img/qci_a6_question2.ps}}
+  \caption{An arbitrary quantum circuit.}
+  \label{fig:circuit1}
+\end{figure}
+
+\begin{question}
+The quantum teleportation process, depicted in Figure~\ref{fig:circuit1}, transmits quantum information from one location to another using two previously entangled qubits. Knowing that when measuring these entangled qubits, the system \textit{immediately} collapses to the resulting state. Does the quantum teleportation process also enable faster--than--light communication between the two locations? Explain your answer.
+\label{qst:assignment6_2}
+\end{question}
+{\small
+\texttt{Write down your solution here:}}
+\vspace{0.1cm}
+
+\begin{figure}[t]
+  \centerline{\includegraphics[scale=0.25]{img/qci_a6_question3.ps}}
+  \caption{An arbitrary quantum circuit.}
+  \label{fig:circuit2}
+\end{figure}
+
+\begin{question}
+Consider the quantum circuit presented in Figure~\ref{fig:circuit2}. What is the state of the qubits $\ket{q_{1}q_{0}}$ after measuring $\ket{q_{2}}$ with result 1 ($M(\ket{q_{2}}) = 1$)?
+\label{qst:assignment6_3}
+\end{question}
+{\small
+\texttt{Write down your solution here:}
+\begin{equation*}
+  \begin{split}
+  \text Hq_{0} \longrightarrow \ket{000}+\ket{001}\\
+  \text Hq_{1} \longrightarrow \ket{000}+\ket{010}+\ket{001}+\ket{011}\\
+  \text CNOT_{0,2} \longrightarrow \ket{000}+\ket{010}+\ket{101}+\ket{111}\\
+  \text CNOT_{1,2} \longrightarrow \ket{000}+\ket{110}+\ket{101}+\ket{011}\\
+  \text M(\ket{q_{2}})=1=\frac{1}{2}\ket{110}\bigwedge\ket{101}\\
+  \ket{1}\otimes\frac{1}{\sqrt{2}}(\ket{10}+\ket{01})\\
+  \ket{q_{1}q_{0}}=\frac{1}{\sqrt{2}}(\ket{10}+\ket{01})
+  \end{split}
+\end{equation*}}
+\vspace{0.1cm}
+
+\begin{figure}[t]
+  \centerline{\includegraphics[scale=0.25]{img/qci_a6_question4.ps}}
+  \caption{An arbitrary quantum circuit.}
+  \label{fig:circuit3}
+\end{figure}
+
+\begin{question}
+Consider the quantum circuit presented in Figure~\ref{fig:circuit3} and assume $\ket{q_{3}q_{2}q_{1}q_{0}} = \ket{0000}$. Determine, by using the Dirac notation, what is the state vector of the quantum circuit just before the measurement?
+\label{qst:assignment6_4}
+\end{question}
+{\small
+\texttt{Write down your solution here:}
+\begin{equation*}
+  \begin{split}
+  \text Hq_{0}\longrightarrow\frac{1}{\sqrt{2}}\ket{0000}+\ket{0001}\\
+  \text Hq_{1}\longrightarrow\frac{1}{2}\ket{0000}\ket{0010}\ket{0001}\ket{0011}\\
+  \text CNOT_{0,2}\longrightarrow\ket{0000}\ket{0010}\ket{0101}\ket{0111}\\
+  \text CNOT_{1,2}\longrightarrow\ket{0000}\ket{0110}\ket{0101}\ket{0011}\\
+  \text CNOT_{01,3}\longrightarrow\ket{0000}\ket{0110}\ket{0101}\ket{1011}\\
+  \\
+  \text {Final state before measurement}=\ket{\psi}\frac{1}{2}\ket{0000}\ket{0110}\ket{0101}\ket{1011}\\
+  \ket{0000}=0,\ket{0001}=1,\ket{0010}=2,\ket{0011}=3,\ket{0100}=4,\ket{0101}\\
+  =5,\ket{0110}=6,\ket{0111}=7,\ket{1000}=8,\ket{1001}=9,\ket{1010}\\
+  =10,\ket{1011}=11,\ket{1100}=12,\ket{1101}=13,\ket{1110}=14,\ket{1111}=15
+  \\
+  \text {The amplitude is $\frac{1}{2}$ en goes on the spots 0, 5, 6, 11}\\
+  \text {State vector}=
+  \begin{bmatrix}
+  \frac{1}{2}&0 \\ 0&0 \\ \frac{1}{2}&\frac{1}{2} \\ 0&0 \\ 0&0 \\ \frac{1}{2}&0
+  \end{bmatrix}
+  \end{split}
+\end{equation*}}
+\vspace{0.1cm}
+
+\begin{question}
+Considering the state vector obtained in Question~\ref{qst:assignment6_4}. What is the probability  $\Prob{M(\ket{q_{3}}) = 0}$?
+\label{qst:assignment6_5}
+\end{question}
+{\small
+\texttt{Write down your solution here:}
+\begin{equation*}
+  \begin{split}
+  \text Q4=\ket{\psi}=\frac{1}{2}(\ket{0000}+\ket{0110}+\ket{0101}+\ket{1011}\\
+  q_{3}=0\longrightarrow\ket{0000}+\ket{0110}+\ket{0101}=\frac{1}{4}+\frac{1}{4}+\frac{1}{4}=\frac{3}{4}=75\%
+  \end{split}
+\end{equation*}}
+\vspace{0.1cm}
+
+\begin{figure}[t]
+  \centerline{\includegraphics[scale=0.35]{img/qci_a6_question6.ps}}
+  \caption{An arbitrary quantum circuit.}
+  \label{fig:circuit4}
+\end{figure}
+
+\begin{question}
+Consider the quantum circuit presented in Figure~\ref{fig:circuit4} and assume $\ket{q_{1}q_{0}} = \ket{10}$. Determine, by using the matrix--vector multiplication, what is the state vector of the quantum circuit just before the measurement?
+\label{qst:assignment6_6}
+\end{question}
+{\small
+\texttt{Write down your solution here:}
+\begin{equation*}
+  \begin{split}
+      \textbf{Initial state:} \\
+        \ket{\psi_0} &= \ket{10}
+        =
+        \begin{pmatrix}
+        0\\
+        0\\
+        1\\
+        0
+        \end{pmatrix}
+        \\[1em]
+        
+        \textbf{Apply } H \textbf{ on } q_0: \\
+        
+        I \otimes H
+        &=
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+        1&1&0&0\\
+        1&-1&0&0\\
+        0&0&1&1\\
+        0&0&1&-1
+        \end{pmatrix}
+        \\[1em]
+        
+        \ket{\psi_1}
+        &=
+        (I \otimes H)\ket{\psi_0}
+        =
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+        0\\
+        0\\
+        1\\
+        1
+        \end{pmatrix}
+        =
+        \frac{1}{\sqrt{2}}(\ket{10}+\ket{11})
+        \\[1em]
+        
+        \textbf{Apply } H \textbf{ on } q_1: \\
+        
+        H \otimes I
+        &=
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+        1&0&1&0\\
+        0&1&0&1\\
+        1&0&-1&0\\
+        0&1&0&-1
+        \end{pmatrix}
+        \\[1em]
+        
+        \ket{\psi_2}
+        &=
+        (H \otimes I)\ket{\psi_1}
+        =
+        \frac{1}{2}
+        \begin{pmatrix}
+        1\\
+        1\\
+        -1\\
+        -1
+        \end{pmatrix}
+        =
+        \frac{1}{2}
+        (\ket{00}+\ket{01}-\ket{10}-\ket{11})
+        \\[1em]
+        
+        \textbf{Apply } X \textbf{ on } q_1: \\
+        
+        X \otimes I
+        &=
+        \begin{pmatrix}
+        0&0&1&0\\
+        0&0&0&1\\
+        1&0&0&0\\
+        0&1&0&0
+        \end{pmatrix}
+        \\[1em]
+        
+        \ket{\psi_3}
+        &=
+        (X \otimes I)\ket{\psi_2}
+        =
+        \frac{1}{2}
+        \begin{pmatrix}
+        -1\\
+        -1\\
+        1\\
+        1
+        \end{pmatrix}
+        =
+        \frac{1}{2}
+        (-\ket{00}-\ket{01}+\ket{10}+\ket{11})
+        \\[1em]
+        
+        \textbf{Apply final } H \textbf{ on } q_0: \\
+        
+        \ket{\psi}
+        &=
+        (I \otimes H)\ket{\psi_3}
+        =
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+        -1\\
+        0\\
+        1\\
+        0
+        \end{pmatrix}
+        \\[1em]
+        
+        \textbf{Final state just before measurement:} \\
+        
+        \boxed{
+        \ket{\psi}
+        =
+        \frac{1}{\sqrt{2}}
+        \left(
+        \ket{10}
+        -
+        \ket{00}
+        \right)
+        }
+  \end{split}
+\end{equation*}}
+\vspace{0.1cm}
+
+\begin{question}
+Confirm, by using the Dirac notation, the state vector obtained in Question~\ref{qst:assignment6_6}.
+\label{qst:assignment6_7}
+\end{question}
+{\small
+\texttt{Write down your solution here:}
+\begin{equation*}
+  \begin{split}
+  H\ket{q_{0}}\longrightarrow\ket{10}+\ket{11}\\
+  H\ket{q_{1}}\longrightarrow\ket{00}-\ket{10}+\ket{01}-\ket{11}\\
+  X\ket{q_{1}}\longrightarrow\ket{10}-\ket{00}+\ket{11}-\ket{01}\\
+  H\ket{q_{0}}\longrightarrow\ket{10}+\ket{11}-\ket{00}+\ket{01}+\ket{10}-\ket{11}-\ket{00}-\ket{01}\\
+  \ket{\psi}\longrightarrow\ket{10}+-\ket{00}+\ket{10}-\ket{00}
+  \longrightarrow\frac{1}{\sqrt{2}}(\ket{10}-\ket{00})\\
+  \ket{q_{1}q_{0}}=\frac{1}{\sqrt{2}}(\ket{10}-\ket{00})
+  \end{split}
+\end{equation*}}
+\vspace{0.1cm}
+
+\begin{figure}[t]
+  \centerline{\includegraphics[scale=0.25]{img/qci_a6_question8.ps}}
+  \caption{An arbitrary quantum circuit.}
+  \label{fig:circuit5}
+\end{figure}
+
+\begin{question}
+At this point, I assume that you noticed that Figure~\ref{fig:circuit4} represents the Deutsch circuit for a constant function. Likewise, the quantum circuit presented in Figure~\ref{fig:circuit5} represents the Deutsch circuit for a balanced function. Assume $\ket{q_{1}q_{0}} = \ket{10}$ and corroborate, by using the Dirac notation, that $M(\ket{q_{0}}) = 1$ with 100\% probability.
+\label{qst:assignment6_8}
+\end{question}
+{\small
+\texttt{Write down your solution here:}
+\begin{equation*}
+  \begin{split}
+  \ket{q_1q_0}=\ket{10}\\
+  Hq_0\longrightarrow\frac{1}{\sqrt{2}}(\ket{10}+\ket{11})\\
+  Hq_1\longrightarrow\frac{1}{2}(\ket{00}-\ket{10}+\ket{01}-\ket{11})\\
+  \longrightarrow\frac{1}{2}(\ket{00}+\ket{01}-\ket{10}-\ket{11}\\
+  Xq_0\longrightarrow\frac{1}{2}(\ket{01}+\ket{00}-\ket{11}-\ket{10}\\
+  CNOT_{0,1}\longrightarrow\frac{1}{2}(\ket{11}+\ket{00}-\ket{01}-\ket{10}\\
+  Xq_0\longrightarrow\frac{1}{2}\ket{10}+\ket{01}-\ket{00}-\ket{11}\\
+  Hq_0\longrightarrow\frac{1}{\sqrt{2}}(\ket{10}+\ket{11}+\ket{00}-\ket{01}-\ket{00}+\ket{01}-\ket{10}+\ket{11})\\
+  \longrightarrow\frac{1}{\sqrt{2}}(\ket{11})
+  \end{split}
+\end{equation*}}
+\vspace{0.1cm}
+
+\begin{figure}[t]
+  \centerline{\includegraphics[scale=0.25]{img/qci_a6_question9.ps}}
+  \caption{An arbitrary quantum circuit.}
+  \label{fig:circuit6}
+\end{figure}
+
+\begin{question}
+Consider the quantum circuit presented in Figure~\ref{fig:circuit6} and assume $\ket{q_{2}q_{1}q_{0}} = \ket{100}$. Can you determine, by using the Dirac notation, whether the implemented function is constant or balanced?
+\label{qst:assignment6_9}
+\end{question}
+{\small
+\texttt{Write down your solution here:}
+\begin{equation*}
+  \begin{split}
+  H\ket{1}=\ket{-}\\
+  H\ket{0}=\ket{+}\\
+  \ket{\psi_{1}}=\ket{-}_{q2}\frac{1}{2}(\ket{00}+\ket{01}+\ket{10}+\ket{11})_{q1q0}\\
+  2\cdot CNOT\longrightarrow\ket{\psi_2}=\ket{-}_{q2}\frac{1}{2}(\ket{00}-\ket{01}-\ket{10}+\ket{11})\\
+  \ket{\psi_2}=\ket{-}_{q2}\ket{-}_{q1}\ket{-}_{q0}\\
+  H_{q1q0}\longrightarrow\ket{\psi_3}=\ket{-}_{q2}\ket{+}_{q1}\ket{+}_{q0}\\
+  \longrightarrow\ket{\psi_{3}}=\ket{-}_{q2}\ket{11}\\
+  \ket{11}\neq0 \\
+  \text {So is balanced}
+  \end{split}
+\end{equation*}}
+\vspace{0.1cm}
+
+\begin{question}
+Refering to Question~\ref{qst:assignment6_9}. Are you 100\% sure about the type of the implemented function? Why?
+\label{qst:assignment6_10}
+\end{question}
+{\small
+\texttt{Write down your solution here:}}
+\begin{equation*}
+    \begin{split}
+    2\cdot CNOT \longrightarrow q_2\longrightarrow q_2\otimes q_1\otimes q_0\\ 
+    f(q_1q_0)=q_1\otimes q_0\\
+    \begin{bmatrix}
+        f=\ket{00}=0\\
+        f=\ket{01}=1\\
+        f=\ket{10}=1\\
+        f=\ket{11}=0\\
+    \end{bmatrix}so, 2\cdot0\bigwedge2\cdot1\\
+    \text {output question 9=$\ket{11}$}\longrightarrow\ket{11}\neq{0}= balanced
+    \end{split}
+\end{equation*}
